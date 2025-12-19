@@ -10,6 +10,9 @@ import {
   Star,
   ChevronRight,
 } from 'lucide-react';
+import HomeBanner from "../components/HomeBanner"
+import Service from '../components/Service';
+import BeforeAfterCase from '../components/BeforeAfterCase';
 
 export default function Home() {
   const services = [
@@ -153,6 +156,8 @@ export default function Home() {
             <span className="text-gray-800">Under One Roof</span>
           </motion.h1>
 
+          
+
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -162,6 +167,8 @@ export default function Home() {
             Alexis Hospital — Where medical excellence meets beauty and wellness.
             Experience world-class healthcare and premium cosmetology services.
           </motion.p>
+
+          
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -190,6 +197,10 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <HomeBanner/>
+      <Service/>
+      <BeforeAfterCase/>
 
       <motion.section
         initial="initial"

@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* HARD FIX for Swiper bleed-through */
+.swiper {
+  overflow: visible;
+}
+
+.swiper-slide {
+  background: transparent !important;
+  pointer-events: none;
+}
+
+.swiper-slide-active {
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.25;
+  transform: scale(0.92);
+  filter: blur(1px);
+}
+
+/* GPU + clipping fix */
+.before-after-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}

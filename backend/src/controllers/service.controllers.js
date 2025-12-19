@@ -14,6 +14,7 @@ export const createService = async (req, res) => {
       rightPoints,
       buttonText,
       order,
+      category,
     } = req.body;
 
     const imageFiles = req.files?.images;
@@ -48,6 +49,7 @@ export const createService = async (req, res) => {
       buttonText,
       images: uploadedImages,
       order,
+      category,
     });
 
     res.status(201).json({
@@ -210,6 +212,74 @@ export const deleteService = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to delete service",
+    });
+  }
+};
+
+
+export const getServicesByCategory = async (req, res) => {
+  try {
+    const services = await Service.find({})
+      .sort({ order: 1, createdAt: -1 })
+      .lean();
+
+    const medicalServices = services.filter(
+      (service) => service.category === "Medical"
+    );
+
+    const cosmetologyServices = services.filter(
+      (service) => service.category === "Cosmetology"
+    );
+
+    res.status(200).json({
+      success: true,
+      medical: medicalServices,
+      cosmetology: cosmetologyServices,
+    });
+  } catch (error) {
+    console.error("Error fetching services:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch services",
+    });
+  }
+};
+
+export const getMedicalServices = async (req, res) => {
+  try {
+    const services = await Service.find({ category: "Medical" })
+      .sort({ order: 1, createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: services.length,
+      services,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch medical services",
+    });
+  }
+};
+
+
+export const getCosmetologyServices = async (req, res) => {
+  try {
+    const services = await Service.find({ category: "Cosmetology" })
+      .sort({ order: 1, createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: services.length,
+      services,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch cosmetology services",
     });
   }
 };

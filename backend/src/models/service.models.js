@@ -19,6 +19,11 @@ const ServiceSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    category: {
+      type: String,
+      enum: ["Medical", "Cosmetology"],
+      required: true,
+    },
 
     // BULLET LIST
     rightPoints: {

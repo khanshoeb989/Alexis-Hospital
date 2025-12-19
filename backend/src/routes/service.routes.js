@@ -5,6 +5,9 @@ import {
   getSingleService,
   updateService,
   deleteService,
+  getServicesByCategory,
+  getMedicalServices,
+  getCosmetologyServices,
 } from "../controllers/service.controllers.js";
 
 import { upload } from "../middlewares/multer.middlewares.js";
@@ -15,8 +18,16 @@ const router = express.Router();
 /**
  * PUBLIC
  */
+
 router.get("/", getAllServices);
+router.get("/medical", getMedicalServices);
+router.get("/cosmetology", getCosmetologyServices);
 router.get("/:id", getSingleService);
+
+router.get("/by-category", getServicesByCategory);
+
+
+
 
 /**
  * ADMIN
