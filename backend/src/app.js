@@ -7,7 +7,7 @@ app.use(cors({
     origin: [
         "http://localhost:5173",
         "https://alexis-hospital.vercel.app",
-        "https://alexis-hospital.vercel.app"
+        "https://alexis-hospital-cijz.vercel.app"
     ],
     credentials: true
 }))
