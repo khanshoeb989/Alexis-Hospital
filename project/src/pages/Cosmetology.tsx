@@ -216,30 +216,11 @@ export default function Cosmetology() {
 
            {/* TEXT CONTENT */}
 {/* SECTION HEADER */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  className="max-w-4xl mx-auto text-center mb-20"
->
-  <h3 className="text-3xl font-bold text-gray-800 mb-6">
-    Before & After Results
-  </h3>
 
-  <p className="text-gray-600 max-w-2xl mx-auto">
-    Our treatments deliver visible, transformative results. Schedule a
-    consultation to see real patient testimonials and before-after galleries.
-  </p>
-</motion.div>
 
-{/* FULL-WIDTH CAROUSEL */}
-<div className="relative w-screen left-1/2 -translate-x-1/2 overflow-hidden">
-  <BeforeAfterCase />
-</div>
+{/* FIXED CAROUSEL CONTAINER */}
 
-<p className="text-sm text-gray-500 italic text-center mt-12">
-  Results may vary based on individual skin type and condition
-</p>
+
 
 
           </div>
