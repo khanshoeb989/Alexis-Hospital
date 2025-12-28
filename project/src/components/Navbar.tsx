@@ -37,7 +37,7 @@ export default function Navbar() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-10 left-0 right-0 z-40 bg-white/95 backdrop-blur shadow-sm mt-10">
+    <nav className="fixed top-10 left-0 right-0 z-40 bg-white/95 backdrop-blur shadow-sm ">
       <div className="max-w-7xl mx-auto px-4">
         {/* HEADER */}
         <div className="h-20 flex items-center justify-between">
