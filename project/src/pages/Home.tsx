@@ -23,25 +23,25 @@ export default function Home() {
       icon: Stethoscope,
       title: 'Medical Excellence',
       description: 'Comprehensive healthcare with experienced specialists',
-      color: 'from-[#A7D3F3] to-[#A7D3F3]/70',
+      color: 'from-[#0095ff] to-[#ff7197]/70',
     },
     {
       icon: Sparkles,
       title: 'Advanced Cosmetology',
       description: 'Premium beauty treatments and skin rejuvenation',
-      color: 'from-[#F7C6D3] to-[#F7C6D3]/70',
+      color: 'from-[#0095ff] to-[#ff7197]/70',
     },
     {
       icon: Syringe,
       title: 'Laser Treatments',
       description: 'State-of-the-art laser technology for skin care',
-      color: 'from-[#A7D3F3] to-[#F7C6D3]',
+      color: 'from-[#0095ff] to-[#ff7197]',
     },
     {
       icon: Heart,
       title: '24/7 Emergency Care',
       description: 'Round-the-clock medical emergency services',
-      color: 'from-[#F7C6D3] to-[#A7D3F3]',
+      color: 'from-[#0095ff] to-[#ff7197]',
     },
   ];
 
@@ -100,165 +100,309 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#A7D3F3]/20 via-white to-[#F7C6D3]/20" />
+      <section
+  className="
+    relative
+    pt-28 sm:pt-32 md:pt-36
+    min-h-[90vh] md:min-h-screen
+    flex items-center justify-center
+    overflow-hidden
+  "
+>
+  {/* Background */}
+  <div className="absolute inset-0 " />
 
-        <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-[#A7D3F3]/30 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-[#F7C6D3]/30 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
+  {/* Ambient Blobs (responsive) */}
+  <motion.div
+    className="
+      absolute
+      top-20 left-6 sm:left-16
+      w-56 h-56 sm:w-72 sm:h-72
+      
+      rounded-full blur-3xl
+    "
+    animate={{ scale: [1, 1.15, 1] }}
+    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+  />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-6"
-          >
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="inline-block bg-gradient-to-r from-[#A7D3F3] to-[#F7C6D3] text-white px-6 py-2 rounded-full text-sm font-medium mb-6"
-            >
-              Premium Healthcare & Wellness Center
-            </motion.div>
-          </motion.div>
+  <motion.div
+    className="
+      absolute
+      bottom-20 right-6 sm:right-16
+      w-72 h-72 sm:w-96 sm:h-96
+      
+      rounded-full blur-3xl
+    "
+    animate={{ scale: [1, 1.2, 1] }}
+    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+  />
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
-          >
-            <span className="bg-gradient-to-r from-[#A7D3F3] via-[#F7C6D3] to-[#A7D3F3] bg-clip-text text-transparent">
-              Advanced Healthcare
-            </span>
-            <br />
-            <span className="text-gray-800">& Cosmetology</span>
-            <br />
-            <span className="text-gray-800">Under One Roof</span>
-          </motion.h1>
+  {/* Content */}
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
 
-          
+    {/* Premium Tagline */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="
+        inline-flex items-center bg-gradient-to-r from-[#0095ff] to-[#ff7197]
+        mb-6 sm:mb-8
+        px-5 py-2
+        rounded-full
+         backdrop-blur
+        border border-gray-200
+        shadow-sm
+      "
+    >
+      <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#ffffff] font-heading">
+        Excellence in Healthcare & Aesthetics
+      </span>
+    </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed"
-          >
-            Alexis Hospital — Where medical excellence meets beauty and wellness.
-            Experience world-class healthcare and premium cosmetology services.
-          </motion.p>
+    {/* Heading */}
+    <motion.h1
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="
+        text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+        font-extrabold
+        mb-6 sm:mb-8
+        leading-tight
+      "
+    >
+      <span className="bg-gradient-to-r from-[#0095ff] to-[#ff7197] bg-clip-text text-transparent font-heading">
+        Advanced Healthcare
+      </span>
+      <br />
+      <span className="text-[#0b1324] font-heading">
+        & Premium Cosmetology
+      </span>
+      <br />
+      <span className="text-[#0b1324] font-heading">
+        Under One Roof
+      </span>
+    </motion.h1>
 
-          
+    {/* Optional short supporting line (UX improvement) */}
+    <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-8 font-body">
+      World-class medical care and advanced cosmetology, delivered with precision,
+      trust, and compassion.
+    </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link to="/booking">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-[#A7D3F3] to-[#F7C6D3] text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-shadow"
-              >
-                Book Appointment
-              </motion.button>
-            </Link>
-            <Link to="/services">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-shadow border-2 border-gray-200"
-              >
-                Explore Services
-              </motion.button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+    {/* CTAs */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="
+        flex flex-col sm:flex-row
+        gap-4 sm:gap-5
+        justify-center
+      "
+    >
+      <Link to="/booking">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.96 }}
+          className="
+            bg-gradient-to-r from-[#0095ff] to-[#ff7197]
+            text-white
+            px-8 sm:px-9
+            py-3.5 sm:py-4
+            rounded-full
+            font-semibold
+            text-base sm:text-lg
+            shadow-xl hover:shadow-2xl
+            transition font-body
+          "
+        >
+          Book Appointment
+        </motion.button>
+      </Link>
+
+      <Link to="/services">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.96 }}
+          className="
+            bg-white
+            text-[#0b1324]
+            px-8 sm:px-9
+            py-3.5 sm:py-4
+            rounded-full
+            font-semibold
+            text-base sm:text-lg
+            shadow-md hover:shadow-lg
+            border border-gray-200
+            transition
+          "
+        >
+          View Our Services
+        </motion.button>
+      </Link>
+    </motion.div>
+
+  </div>
+</section>
+
+
 
       <HomeBanner/>
 
-      <motion.div variants={fadeInUp} className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Our Happy Clients
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Have a look at our happy clients and their treatment results!
-            </p>
-            <BeforeAfterCase/>
-          </motion.div>
+     <motion.section
+  variants={fadeInUp}
+  className="
+    relative
+    py-6 md:py-8
+    px-4 sm:px-6
+    overflow-hidden
+    bg-gradient-to-br from-[#A7D3F3]/10 via-white to-[#F7C6D3]/10
+  "
+>
+  {/* Ambient Blobs — hide on small screens */}
+  <motion.div
+    className="hidden sm:block absolute top-10 left-6 w-48 h-48 bg-[#0095ff]/12 rounded-full blur-3xl"
+    animate={{ scale: [1, 1.08, 1] }}
+    transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+  />
+  <motion.div
+    className="hidden sm:block absolute bottom-10 right-6 w-56 h-56 bg-[#ff7197]/12 rounded-full blur-3xl"
+    animate={{ scale: [1, 1.1, 1] }}
+    transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+  />
+
+  {/* Content */}
+  <div className="relative z-10 max-w-7xl mx-auto text-center">
+
+    {/* Heading */}
+    <motion.h2
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45 }}
+      className="
+        text-2xl sm:text-3xl md:text-4xl
+        font-extrabold text-[#0b1324]
+        mb-2 font-heading
+      "
+    >
+      Our{" "}
+      <span className="bg-gradient-to-r from-[#0095ff] to-[#ff7197] bg-clip-text text-transparent">
+        Happy Clients
+      </span>
+    </motion.h2>
+
+    {/* Description */}
+    <motion.p
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: 0.05 }}
+      className="
+        text-sm sm:text-base md:text-lg
+        text-gray-600
+        max-w-lg mx-auto
+        leading-relaxed
+        mb-4 font-body
+      "
+    >
+      Real patient transformations powered by expert care and advanced treatments.
+    </motion.p>
+
+    {/* Before / After — NO extra margin */}
+    <div className="mt-2">
+      <BeforeAfterCase />
+    </div>
+
+  </div>
+</motion.section>
+
+
       
       
 
       <motion.section
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-[#F5EAD7]/30"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Our Services
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Comprehensive healthcare and beauty solutions tailored to your needs
-            </p>
-          </motion.div>
-          <Service/>
+  initial="initial"
+  whileInView="animate"
+  viewport={{ once: true }}
+  variants={staggerContainer}
+  className="
+    relative
+    py-4 md:py-6
+    px-4 sm:px-6 lg:px-8
+    bg-gradient-to-br from-white to-[#F5EAD7]/30
+    overflow-hidden
+  "
+>
+  <div className="max-w-7xl mx-auto">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                whileHover={{ y: -10 }}
-                className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all"
-              >
-                <motion.div
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
-                  className={`bg-gradient-to-br ${service.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}
-                >
-                  <service.icon className="w-8 h-8 text-white" />
-                </motion.div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+    {/* HEADER */}
+    <motion.div
+      variants={fadeInUp}
+      className="text-center mb-5"
+    >
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0b1324] mb-2 font-heading">
+        Our{" "}
+        <span className="bg-gradient-to-r from-[#0095ff] to-[#ff7197] bg-clip-text text-transparent font-heading">
+          Services
+        </span>
+      </h2>
+
+      <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-xl mx-auto font-body">
+        Comprehensive healthcare and beauty solutions tailored to your needs
+      </p>
+    </motion.div>
+
+    {/* OPTIONAL SERVICE INTRO */}
+    <div className="mb-4">
+      <Service />
+    </div>
+
+    {/* SERVICES GRID */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      {services.map((service, index) => (
+        <motion.div
+          key={index}
+          variants={fadeInUp}
+          whileHover={{ y: -4 }}
+          className="
+            bg-white
+            rounded-xl
+            p-5
+            shadow-sm
+            hover:shadow-lg
+            transition-all
+          "
+        >
+          <motion.div
+            whileHover={{ rotate: 360, scale: 1.06 }}
+            transition={{ duration: 0.6 }}
+            className={`
+              bg-gradient-to-br ${service.color}
+              w-12 h-12
+              rounded-lg
+              flex items-center justify-center
+              mb-3
+            `}
+          >
+            <service.icon className="w-6 h-6 text-white" />
+          </motion.div>
+
+          <h3 className="text-base sm:text-lg font-bold text-[#0b1324] mb-1.5 font-heading">
+            {service.title}
+          </h3>
+
+          <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-body">
+            {service.description}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+</motion.section>
+
+
 
 {/*
       <motion.section
@@ -338,128 +482,183 @@ export default function Home() {
       */}
 
       <motion.section
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-white"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Hospital Facilities
-            </h2>
-            <p className="text-gray-600 text-lg">
-              World-class infrastructure and patient-centered care
-            </p>
+  initial="initial"
+  whileInView="animate"
+  viewport={{ once: true }}
+  variants={staggerContainer}
+  className="relative py-14 md:py-16 px-4 sm:px-6 lg:px-8 bg-white"
+>
+  <div className="max-w-7xl mx-auto">
+
+    {/* HEADER */}
+    <motion.div
+      variants={fadeInUp}
+      className="text-center mb-8"
+    >
+      <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b1324] mb-3 font-heading">
+        Hospital{" "}
+        <span className="bg-gradient-to-r from-[#0095ff] to-[#ff7197] bg-clip-text text-transparent">
+          Facilities
+        </span>
+      </h2>
+
+      <p className="text-gray-600 text-base md:text-lg max-w-xl mx-auto font-body">
+        World-class infrastructure and patient-centered care
+      </p>
+    </motion.div>
+
+    {/* FACILITIES GRID */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {facilities.map((facility, index) => (
+        <motion.div
+          key={index}
+          variants={fadeInUp}
+          whileHover={{ y: -6 }}
+          className="bg-gradient-to-br from-[#F5EAD7]/40 to-white
+                     rounded-2xl p-6 text-center
+                     shadow-md hover:shadow-xl transition-all"
+        >
+          <motion.div
+            whileHover={{ rotate: 360, scale: 1.08 }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-br from-[#0095ff] to-[#ff7197]
+                       w-16 h-16 rounded-xl
+                       flex items-center justify-center mx-auto mb-4"
+          >
+            <facility.icon className="w-8 h-8 text-white" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {facilities.map((facility, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-br from-[#F5EAD7]/50 to-white rounded-3xl p-10 text-center shadow-lg"
-              >
-                <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                  className="bg-gradient-to-br from-[#A7D3F3] to-[#F7C6D3] w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6"
-                >
-                  <facility.icon className="w-10 h-10 text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                  {facility.title}
-                </h3>
-                <p className="text-gray-600">{facility.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+          <h3 className="text-lg font-bold text-[#0b1324] mb-2 font-heading">
+            {facility.title}
+          </h3>
+
+          <p className="text-sm text-gray-600 leading-relaxed font-body">
+            {facility.description}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.section>
+
 
       <Stats/>
       <VideoTestimonials/>
 
       <motion.section
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#A7D3F3]/5 via-white to-[#F7C6D3]/5"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Patient Testimonials
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Hear from those who experienced our exceptional care
-            </p>
-          </motion.div>
+  initial="initial"
+  whileInView="animate"
+  viewport={{ once: true }}
+  variants={staggerContainer}
+  className="
+    relative
+    py-10 md:py-12
+    px-4 sm:px-6 lg:px-8
+    bg-gradient-to-br
+    from-[#0095ff]/5
+    via-white
+    to-[#ff7197]/5
+  "
+>
+  <div className="max-w-7xl mx-auto">
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                whileHover={{ y: -10 }}
-                className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all"
-              >
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-yellow-400 fill-yellow-400"
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 leading-relaxed italic">
-                  "{testimonial.text}"
-                </p>
-                <div>
-                  <p className="font-semibold text-gray-800">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
-                </div>
-              </motion.div>
+    {/* HEADER */}
+    <motion.div
+      variants={fadeInUp}
+      className="text-center mb-8"
+    >
+      <h2 className="text-2xl md:text-3xl font-extrabold text-[#0b1324] mb-2 font-heading">
+        Patient{" "}
+        <span className="bg-gradient-to-r from-[#0095ff] to-[#ff7197] bg-clip-text text-transparent">
+          Testimonials
+        </span>
+      </h2>
+      <p className="text-sm md:text-base text-gray-600 max-w-xl mx-auto font-body">
+        Hear from those who experienced our exceptional care
+      </p>
+    </motion.div>
+
+    {/* TESTIMONIAL GRID */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {testimonials.map((testimonial, index) => (
+        <motion.div
+          key={index}
+          variants={fadeInUp}
+          whileHover={{ y: -6 }}
+          className="
+            bg-white
+            rounded-2xl
+            p-6
+            shadow-md
+            hover:shadow-xl
+            transition-all
+          "
+        >
+          {/* RATING */}
+          <div className="flex mb-3">
+            {[...Array(testimonial.rating)].map((_, i) => (
+              <Star
+                key={i}
+                className="w-4 h-4 text-yellow-400 fill-yellow-400"
+              />
             ))}
           </div>
-          <Link to="/testimonials">
-  <button
-    className="
-      mt-8
-      inline-flex
-      items-center
-      justify-center
-      rounded-full
-      bg-gradient-to-r
-      from-[#A7D3F3]
-      to-[#F7C6D3]
-      px-8
-      py-3
-      text-sm
-      font-semibold
-      text-white
-      shadow-lg
-      transition
-      duration-300
-      hover:scale-105
-      hover:shadow-xl
-      focus:outline-none
-      focus:ring-2
-      focus:ring-[#A7D3F3]
-      focus:ring-offset-2
-    "
-  >
-    Read More Testimonials
-  </button>
-</Link>
 
-        </div>
-      </motion.section>
+          {/* TEXT */}
+          <p className="text-sm text-gray-700 mb-5 leading-relaxed italic">
+            “{testimonial.text}”
+          </p>
+
+          {/* USER */}
+          <div>
+            <p className="font-semibold text-[#0b1324] text-sm font-heading">
+              {testimonial.name}
+            </p>
+            <p className="text-xs text-gray-500">
+              {testimonial.role}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+
+    {/* CTA */}
+    <div className="flex justify-center mt-8">
+      <Link to="/testimonials">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="
+            inline-flex
+            items-center
+            justify-center
+            rounded-full
+            bg-gradient-to-r
+            from-[#0095ff]
+            to-[#ff7197]
+            px-7
+            py-3
+            text-sm
+            font-semibold
+            text-white
+            shadow-lg
+            hover:shadow-xl
+            transition
+            focus:outline-none
+            focus:ring-2
+            focus:ring-[#0095ff]
+            focus:ring-offset-2
+            font-heading
+          "
+        >
+          Read More Testimonials
+        </motion.button>
+      </Link>
+    </div>
+
+  </div>
+</motion.section>
+
 
 
       <CtaImage/>

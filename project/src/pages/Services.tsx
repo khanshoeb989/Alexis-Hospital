@@ -9,33 +9,39 @@ export default function Services() {
   const [activeTab, setActiveTab] = useState<Category>("Medical");
 
   return (
-    <div className="min-h-screen bg-white pt-20">
-      {/* HERO */}
+    <div className="min-h-screen bg-white pt-20 sm:pt-24 overflow-x-hidden">
+      {/* ================= HERO ================= */}
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="relative py-24 px-4 sm:px-6 lg:px-8
-                   bg-gradient-to-br from-[#A7D3F3]/20 via-white to-[#F7C6D3]/20"
+        className="
+          relative
+          py-16 sm:py-20 lg:py-24
+          px-4 sm:px-6 lg:px-8
+          bg-gradient-to-br from-[#0095ff]/15 via-white to-[#ff7197]/15
+        "
       >
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-5xl md:text-6xl font-bold text-gray-800 mb-6"
+            transition={{ delay: 0.15 }}
+            className="
+              text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+              font-bold text-gray-800 mb-4 sm:mb-6
+            "
           >
             Our{" "}
-            <span className="bg-gradient-to-r from-[#A7D3F3] to-[#F7C6D3]
-                             bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#0095ff] to-[#ff7197] bg-clip-text text-transparent">
               Services
             </span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            transition={{ delay: 0.3 }}
+            className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto"
           >
             Comprehensive healthcare and premium cosmetology services tailored to
             your unique needs.
@@ -43,71 +49,84 @@ export default function Services() {
         </div>
       </motion.section>
 
-      {/* TOGGLE */}
-      <section className="py-12">
-        <div className="flex justify-center">
+      {/* ================= TOGGLE ================= */}
+      <section className="py-8 sm:py-10">
+        <div className="flex justify-center px-4">
           <div
-            className="relative flex items-center rounded-full p-2
-                       bg-gradient-to-r from-[#F5EAD7]/60 to-[#F5EAD7]/40
-                       shadow-inner"
+            className="
+              relative
+              w-full max-w-md
+              grid grid-cols-2
+              rounded-full p-1.5
+              bg-gray-100
+              shadow-inner
+            "
           >
             {/* Sliding pill */}
             <motion.div
               layout
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className={`absolute top-2 bottom-2 w-1/2 rounded-full shadow-lg
-                ${
-                  activeTab === "Medical"
-                    ? "left-2 bg-gradient-to-r from-[#A7D3F3] to-[#BFDFF7]"
-                    : "left-[calc(50%+0.5rem)] bg-gradient-to-r from-[#F7C6D3] to-[#FAD3DF]"
-                }`}
+              transition={{ type: "spring", stiffness: 320, damping: 28 }}
+              className={`
+                absolute inset-y-1.5 w-1/2 rounded-full shadow-md
+                bg-gradient-to-r from-[#0095ff] to-[#ff7197]
+                ${activeTab === "Medical" ? "left-1.5" : "left-1/2"}
+              `}
             />
 
-            {/* Buttons */}
             <button
               onClick={() => setActiveTab("Medical")}
-              className={`relative z-10 px-10 py-4 rounded-full font-semibold
+              className={`
+                relative z-10
+                py-3 text-xs sm:text-sm font-semibold rounded-full
                 transition-colors
-                ${activeTab === "Medical" ? "text-white" : "text-gray-800"}`}
+                ${activeTab === "Medical" ? "text-white" : "text-gray-800"}
+              `}
             >
-              Medical Services
+              Medical
             </button>
 
             <button
               onClick={() => setActiveTab("Cosmetology")}
-              className={`relative z-10 px-10 py-4 rounded-full font-semibold
+              className={`
+                relative z-10
+                py-3 text-xs sm:text-sm font-semibold rounded-full
                 transition-colors
-                ${activeTab === "Cosmetology" ? "text-white" : "text-gray-800"}`}
+                ${activeTab === "Cosmetology" ? "text-white" : "text-gray-800"}
+              `}
             >
-              Cosmetology Services
+              Cosmetology
             </button>
           </div>
         </div>
       </section>
 
-      {/* SERVICES (DYNAMIC) */}
+      {/* ================= SERVICES ================= */}
       <motion.section
         key={activeTab}
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.4 }}
       >
         <ServiceCards category={activeTab} />
       </motion.section>
 
-      {/* CTA ONLY FOR COSMETOLOGY */}
+      {/* ================= CTA (COSMETOLOGY ONLY) ================= */}
       {activeTab === "Cosmetology" && (
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="py-20 px-4 sm:px-6 lg:px-8
-                     bg-gradient-to-br from-[#F5EAD7]/30 to-white"
+          className="
+            py-14 sm:py-18
+            px-4 sm:px-6 lg:px-8
+            bg-gradient-to-br from-[#0095ff]/15 via-white to-[#ff7197]/15
+          "
         >
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
               Want Detailed Cosmetology Insights?
             </h2>
-            <p className="text-gray-600 text-lg mb-8">
+
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8">
               Explore before & after results, procedures, and detailed treatment
               explanations.
             </p>
@@ -116,9 +135,16 @@ export default function Services() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-[#A7D3F3] to-[#F7C6D3]
-                           text-white px-10 py-4 rounded-full
-                           font-semibold shadow-xl"
+                className="
+                  bg-gradient-to-r from-[#0095ff] to-[#ff7197]
+                  text-white
+                  px-8 sm:px-10
+                  py-3 sm:py-4
+                  rounded-full
+                  font-semibold
+                  shadow-xl
+                  w-full sm:w-auto
+                "
               >
                 View Detailed Page
               </motion.button>

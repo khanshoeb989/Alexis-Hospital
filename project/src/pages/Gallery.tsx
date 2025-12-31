@@ -2,25 +2,27 @@ import { motion } from "framer-motion";
 
 const images = [
   "/gallery-1.jpg",
- 
 ];
 
 export default function Gallery() {
   return (
-    <section className="py-20 bg-gray-50 mt-10">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="relative py-24 mt-10 overflow-hidden font-heading">
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#A7D3F3]/12 via-white to-[#F7C6D3]/12" />
+
+      <div className="relative max-w-7xl mx-auto px-4">
 
         {/* ================= HEADING ================= */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-[#0b1324]">
             Our Hospital & Treatment Facilities
           </h1>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Explore our modern hospital infrastructure, treatment rooms,
             consulting areas, and patient-friendly facilities.
           </p>
@@ -34,14 +36,32 @@ export default function Gallery() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3 }}
-              className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-lg transition"
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="
+                group relative overflow-hidden rounded-3xl
+                bg-white shadow-md hover:shadow-2xl
+                transition-all
+              "
             >
               <img
                 src={src}
                 alt={`Hospital gallery ${index + 1}`}
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                className="
+                  w-full h-64 object-cover
+                  transition-transform duration-500
+                  group-hover:scale-105
+                "
                 loading="lazy"
+              />
+
+              {/* SUBTLE OVERLAY */}
+              <div
+                className="
+                  absolute inset-0
+                  bg-gradient-to-t from-black/20 via-transparent to-transparent
+                  opacity-0 group-hover:opacity-100
+                  transition-opacity
+                "
               />
             </motion.div>
           ))}

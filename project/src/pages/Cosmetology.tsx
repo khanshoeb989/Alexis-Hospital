@@ -1,125 +1,64 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import {
-  Sparkles,
-  Sun,
-  Droplet,
-  Timer,
-  Zap,
-  Smile,
-  Check,
-  ArrowRight,
-  Star,
-} from 'lucide-react';
-import CosmoService from '../components/CosmoServices';
-import ServiceCards from '../components/ServiceCards';
-import BeforeAfterCase from '../components/BeforeAfterCase';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight, Star } from "lucide-react";
+
+import CosmoService from "../components/CosmoServices";
+import ServiceCards from "../components/ServiceCards";
 
 export default function Cosmetology() {
-  const categories = [
-    {
-      icon: Sparkles,
-      title: 'Advanced Facials',
-      description: 'Deep cleansing, hydration, and rejuvenation',
-      treatments: ['HydraFacial', 'Oxygen Therapy', 'Gold Facial', 'Diamond Facial'],
-      priceRange: '$150 - $300',
-      duration: '60-90 min',
-    },
-    {
-      icon: Sun,
-      title: 'Tan Removal',
-      description: 'Restore your natural skin tone',
-      treatments: ['De-Tan Pack', 'Skin Polishing', 'Whitening Treatment', 'Brightening Serum'],
-      priceRange: '$100 - $250',
-      duration: '45-60 min',
-    },
-    {
-      icon: Droplet,
-      title: 'Chemical Peels',
-      description: 'Medical-grade exfoliation and renewal',
-      treatments: ['Glycolic Peel', 'Salicylic Peel', 'TCA Peel', 'Lactic Acid Peel'],
-      priceRange: '$200 - $400',
-      duration: '30-45 min',
-    },
-    {
-      icon: Timer,
-      title: 'Anti-Aging',
-      description: 'Turn back the clock on aging',
-      treatments: ['Botox', 'Dermal Fillers', 'Thread Lift', 'Micro-needling'],
-      priceRange: '$500 - $1500',
-      duration: '30-120 min',
-    },
-    {
-      icon: Zap,
-      title: 'Laser Treatments',
-      description: 'Advanced laser technology',
-      treatments: ['Hair Removal', 'Skin Resurfacing', 'Pigmentation', 'Scar Treatment'],
-      priceRange: '$300 - $800',
-      duration: '30-90 min',
-    },
-    {
-      icon: Smile,
-      title: 'Hair Rejuvenation',
-      description: 'Restore hair health and growth',
-      treatments: ['PRP Therapy', 'Hair Transplant', 'Scalp Treatment', 'Hair Regrowth'],
-      priceRange: '$400 - $2000',
-      duration: '60-180 min',
-    },
-  ];
-
   const procedures = [
     {
-      title: 'Consultation',
-      description: 'Comprehensive skin analysis and treatment planning',
+      title: "Consultation",
+      description: "Comprehensive skin analysis and treatment planning",
     },
     {
-      title: 'Preparation',
-      description: 'Skin cleansing and preparation for the procedure',
+      title: "Preparation",
+      description: "Skin cleansing and preparation for the procedure",
     },
     {
-      title: 'Treatment',
-      description: 'Advanced treatment using state-of-the-art technology',
+      title: "Treatment",
+      description: "Advanced treatment using state-of-the-art technology",
     },
     {
-      title: 'Aftercare',
-      description: 'Post-treatment care and follow-up guidance',
+      title: "Aftercare",
+      description: "Post-treatment care and follow-up guidance",
     },
   ];
 
   const benefits = [
-    'FDA-approved treatments and equipment',
-    'Board-certified dermatologists',
-    'Personalized treatment plans',
-    'Luxury treatment rooms',
-    'Complimentary consultation',
-    'Flexible payment options',
+    "FDA-approved treatments and equipment",
+    "Board-certified dermatologists",
+    "Personalized treatment plans",
+    "Luxury treatment rooms",
+    "Complimentary consultation",
+    "Flexible payment options",
   ];
 
   const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
+    initial: { opacity: 0, y: 24 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
+    transition: { duration: 0.45 },
   };
 
   return (
-    <div className="min-h-screen bg-white pt-20">
-      
+    <div className="min-h-screen bg-white pt-16 sm:pt-20 font-heading">
+      {/* HERO */}
+      <CosmoService />
 
-      <CosmoService/>
-
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* ================= CATEGORIES ================= */}
+      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-10"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0b1324] mb-2">
               Our Treatment Categories
             </h2>
-            <p className="text-gray-600 text-lg">
-              Comprehensive beauty and skin care solutions
+            <p className="text-gray-600 text-sm sm:text-base">
+              Comprehensive beauty & skin care solutions
             </p>
           </motion.div>
 
@@ -127,45 +66,56 @@ export default function Cosmetology() {
         </div>
       </section>
 
+      {/* ================= PROCESS ================= */}
       <motion.section
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#F5EAD7]/30 to-white"
+        className="
+          py-10 sm:py-14 lg:py-16
+          px-4 sm:px-6 lg:px-8
+          bg-gradient-to-br from-[#A7D3F3]/10 via-white to-[#F7C6D3]/10
+        "
       >
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <motion.div variants={fadeInUp} className="text-center mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0b1324] mb-2">
               Treatment Process
             </h2>
-            <p className="text-gray-600 text-lg">
-              Your journey to beautiful skin in four simple steps
+            <p className="text-gray-600 text-sm sm:text-base">
+              Four simple steps to better skin
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {procedures.map((procedure, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                whileHover={{ scale: 1.05 }}
                 className="relative"
               >
-                <div className="bg-white rounded-3xl p-8 shadow-lg text-center">
-                  <div className="bg-gradient-to-br from-[#F7C6D3] to-[#A7D3F3] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-md text-center h-full">
+                  <div className="
+                    bg-gradient-to-br from-[#0095ff] to-[#ff7197]
+                    w-10 h-10 sm:w-12 sm:h-12
+                    rounded-full flex items-center justify-center
+                    mx-auto mb-4
+                    text-white font-semibold
+                  ">
                     {index + 1}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+
+                  <h3 className="text-base sm:text-lg font-semibold text-[#0b1324] mb-1">
                     {procedure.title}
                   </h3>
-                  <p className="text-gray-600">{procedure.description}</p>
+                  <p className="text-gray-600 text-xs sm:text-sm">
+                    {procedure.description}
+                  </p>
                 </div>
+
                 {index < procedures.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ArrowRight className="w-8 h-8 text-[#F7C6D3]" />
+                  <div className="hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2">
+                    <ArrowRight className="w-5 h-5 text-[#ff7197]" />
                   </div>
                 )}
               </motion.div>
@@ -174,91 +124,93 @@ export default function Cosmetology() {
         </div>
       </motion.section>
 
-      
-
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* ================= WHY CHOOSE ================= */}
+      <section className="py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                Why Choose{' '}
-                <span className="bg-gradient-to-r from-[#F7C6D3] to-[#A7D3F3] bg-clip-text text-transparent">
-                  Alexis Hospital
-                </span>
-              </h2>
-              <p className="text-gray-600 text-lg mb-8">
-                Experience the perfect blend of medical expertise and luxury beauty
-                treatments in a world-class facility.
-              </p>
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center space-x-4"
-                  >
-                    <div className="bg-gradient-to-br from-[#F7C6D3] to-[#A7D3F3] w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Star className="w-5 h-5 text-white fill-white" />
-                    </div>
-                    <span className="text-gray-700 text-lg">{benefit}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-            <br />
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0b1324] mb-4">
+              Why Choose{" "}
+              <span className="bg-gradient-to-r from-[#0095ff] to-[#ff7197] bg-clip-text text-transparent">
+                Alexis Hospital
+              </span>
+            </h2>
 
-           {/* TEXT CONTENT */}
-{/* SECTION HEADER */}
+            <p className="text-gray-600 text-sm sm:text-base mb-6">
+              A perfect balance of medical expertise and luxury aesthetics.
+            </p>
 
-
-{/* FIXED CAROUSEL CONTAINER */}
-
-
-
-
-          </div>
+            <div className="space-y-3">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="flex items-start gap-3"
+                >
+                  <div className="
+                    bg-gradient-to-br from-[#0095ff] to-[#ff7197]
+                    w-6 h-6 rounded-full flex items-center justify-center shrink-0
+                  ">
+                    <Star className="w-3 h-3 text-white fill-white" />
+                  </div>
+                  <span className="text-gray-700 text-xs sm:text-sm">
+                    {benefit}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
+      {/* ================= CTA ================= */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#F7C6D3] to-[#A7D3F3]"
+        className="
+          py-10 sm:py-14
+          px-4 sm:px-6 lg:px-8
+          bg-gradient-to-r from-[#0095ff] to-[#ff7197]
+        "
       >
-        <div className="max-w-4xl mx-auto text-center text-white">
+        <div className="max-w-3xl mx-auto text-center text-white">
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold mb-6"
+            className="text-2xl sm:text-3xl font-bold mb-3"
           >
             Ready to Transform Your Skin?
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-xl mb-10"
-          >
-            Book your complimentary consultation and discover the perfect treatment
-            plan for your unique needs
-          </motion.p>
+
+          <p className="text-sm sm:text-base mb-6">
+            Book your complimentary consultation today.
+          </p>
+
           <Link to="/booking">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-[#F7C6D3] px-10 py-4 rounded-full font-bold text-lg shadow-2xl"
+              className="
+                bg-white text-[#0095ff]
+                px-6 sm:px-8
+                py-2.5 sm:py-3
+                rounded-full
+                font-semibold
+                text-sm sm:text-base
+                shadow-lg
+                w-full sm:w-auto
+              "
             >
-              Schedule Your Consultation
+              Schedule Consultation
             </motion.button>
           </Link>
         </div>

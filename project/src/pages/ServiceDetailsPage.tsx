@@ -46,7 +46,7 @@ export default function ServiceDetailsPage() {
       <section className="bg-gradient-to-br from-[#A7D3F3]/20 via-white to-[#F7C6D3]/20 py-24">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <span className="inline-block mb-4 px-5 py-2 rounded-full text-sm font-semibold
-            bg-gradient-to-r from-[#F7C6D3] to-[#A7D3F3] text-white">
+            bg-gradient-to-r from-[#0095ff] to-[#ff7197] text-white">
             {service.category}
           </span>
 
@@ -138,14 +138,14 @@ export default function ServiceDetailsPage() {
         <div className="max-w-4xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 gap-10 text-center">
           <div>
             <p className="text-gray-500 mb-1">Price Range</p>
-            <p className="text-2xl font-bold text-[#F7C6D3]">
+            <p className="text-2xl font-bold text-[#0095ff] ">
               {service.priceRange}
             </p>
           </div>
 
           <div>
             <p className="text-gray-500 mb-1">Duration</p>
-            <p className="text-2xl font-bold text-[#A7D3F3]">
+            <p className="text-2xl font-bold text-[#0095ff]">
               {service.duration}
             </p>
           </div>

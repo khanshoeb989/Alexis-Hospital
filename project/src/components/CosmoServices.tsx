@@ -42,87 +42,94 @@ export default function CosmoService() {
   if (loading || services.length === 0) return null;
 
   return (
-    <section className="py-20 sm:py-28 bg-gradient-to-br from-[#F7C6D3]/20 via-white to-[#A7D3F3]/20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#F7C6D3]/20 via-white to-[#A7D3F3]/20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <Swiper
           modules={[Autoplay, Pagination]}
           autoplay={{ delay: 5500, disableOnInteraction: false }}
           pagination={{ clickable: true }}
           loop
-          speed={900}
+          speed={800}
           slidesPerView={1}
           className="overflow-hidden"
         >
           {services.map((service) => (
             <SwiperSlide key={service._id}>
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center"
               >
-                {/* LEFT CONTENT */}
+                {/* ================= LEFT CONTENT ================= */}
                 <div className="text-center lg:text-left">
-                  <span className="inline-block mb-6 px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-[#F7C6D3] to-[#A7D3F3] text-white">
+                  <span className="inline-block mb-4 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-gradient-to-r from-[#0095ff] to-[#ff7197] text-white">
                     {service.badgeText}
                   </span>
 
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                     {service.title}
                   </h2>
 
-                  <p className="text-gray-600 text-lg mb-10 max-w-xl mx-auto lg:mx-0">
+                  <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-xl mx-auto lg:mx-0">
                     {service.description}
                   </p>
 
-                  <ul className="space-y-4 mb-12">
+                  <ul className="space-y-3 mb-8">
                     {service.rightPoints.map((point, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-4 justify-center lg:justify-start"
+                        className="flex items-start gap-3 justify-center lg:justify-start"
                       >
-                        <span className="mt-1 w-6 h-6 rounded-full flex items-center justify-center bg-gradient-to-br from-[#F7C6D3] to-[#A7D3F3]">
-                          <ChevronRight className="w-4 h-4 text-white" />
+                        <span className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center bg-gradient-to-br from-[#0095ff] to-[#ff7197] shrink-0">
+                          <ChevronRight className="w-3.5 h-3.5 text-white" />
                         </span>
-                        <span className="text-gray-700">{point}</span>
+                        <span className="text-gray-700 text-sm sm:text-base">
+                          {point}
+                        </span>
                       </li>
                     ))}
                   </ul>
-                  
+
                   <motion.button
-                    whileHover={{ scale: 1.06 }}
-                    whileTap={{ scale: 0.96 }}
-                    className="inline-flex items-center gap-3 px-9 py-4 rounded-full bg-gradient-to-r from-[#F7C6D3] to-[#A7D3F3] text-white font-semibold shadow-xl"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="
+                      inline-flex items-center justify-center
+                      gap-3
+                      px-7 sm:px-9
+                      py-3
+                      rounded-full
+                      bg-gradient-to-r from-[#0095ff] to-[#ff7197]
+                      text-white font-semibold
+                      shadow-lg
+                      w-full sm:w-auto
+                    "
                   >
                     {service.buttonText}
                   </motion.button>
                 </div>
 
-                {/* RIGHT IMAGES */}
+                {/* ================= RIGHT IMAGES ================= */}
                 <div className="w-full">
-                  {/* MOBILE: STACKED */}
-                  <div className="flex flex-col gap-6 sm:hidden">
-                    {service.images.map((img, idx) => (
-                      <div
-                        key={idx}
-                        className="w-full aspect-square rounded-2xl overflow-hidden bg-white shadow-md"
-                      >
-                        <img
-                          src={img}
-                          alt="Service"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
+                  {/* MOBILE: 1 IMAGE ONLY */}
+                  <div className="sm:hidden">
+                    <div className="w-full aspect-square rounded-2xl overflow-hidden bg-white shadow-md">
+                      <img
+                        src={service.images[0]}
+                        alt="Service"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
 
                   {/* TABLET & DESKTOP GRID */}
-                  <div className="hidden sm:grid grid-cols-2 gap-6">
+                  <div className="hidden sm:grid grid-cols-2 gap-4 sm:gap-6">
                     {service.images.slice(0, 4).map((img, idx) => (
                       <motion.div
                         key={idx}
-                        whileHover={{ y: -6, scale: 1.02 }}
-                        className="aspect-square rounded-3xl overflow-hidden bg-white shadow-xl"
+                        whileHover={{ y: -4, scale: 1.02 }}
+                        className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-lg"
                       >
                         <img
                           src={img}
@@ -139,7 +146,7 @@ export default function CosmoService() {
                         key={`placeholder-${idx}`}
                         className="aspect-square rounded-3xl bg-gradient-to-br from-[#F7C6D3]/20 to-[#A7D3F3]/20 flex items-center justify-center"
                       >
-                        <Sparkles className="w-10 h-10 text-[#F7C6D3]" />
+                        <Sparkles className="w-8 h-8 text-[#F7C6D3]" />
                       </div>
                     ))}
                   </div>
