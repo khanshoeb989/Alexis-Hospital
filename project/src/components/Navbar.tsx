@@ -1,7 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
+
+// LOGOS
+import hospitalLogo from "../assets/logo-hospital.png";
+import cosmoLogo from "../assets/logo-cosmo.png";
 
 const servicesDropdown = [
   "Diabetes Management",
@@ -34,25 +38,53 @@ export default function Navbar() {
     { name: "Contact", path: "/contact" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="fixed top-10 left-0 right-0 z-40 bg-white/95 backdrop-blur shadow-sm ">
+    <nav className="
+    font-body
+  fixed
+  mt-10
+  md:mt-0
+  top-10
+  left-0
+  right-0
+  z-40
+  bg-white/95
+  backdrop-blur
+  shadow-sm
+">
+
       <div className="max-w-7xl mx-auto px-4">
         {/* HEADER */}
         <div className="h-20 flex items-center justify-between">
-          {/* LOGO */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="bg-gradient-to-br from-[#A7D3F3] to-[#F7C6D3] p-2 rounded-xl">
-              <Heart className="w-6 h-6 text-white" fill="white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-[#0f5aa7]">
-                Alexis Hospital
-              </h1>
-              <p className="text-xs text-gray-500">Healthcare & Wellness</p>
-            </div>
-          </Link>
+          {/* LOGOS ONLY */}
+          <div className="flex items-center gap-6">
+            {/* Hospital Logo */}
+            <Link to="/">
+              <img
+                src={hospitalLogo}
+                alt="Alexis Hospital"
+                className="h-11 w-auto object-contain"
+              />
+            </Link>
+
+            {/* Divider */}
+            <div className="h-8 w-px bg-gray-300" />
+
+            {/* Cosmetology Logo */}
+            <Link to="/services/cosmetology">
+              <img
+                src={cosmoLogo}
+                alt="Alexis Cosmetology"
+                className={`h-10 w-auto object-contain transition ${
+                  isActive("/services/cosmetology")
+                    ? "opacity-100"
+                    : "opacity-100 hover:opacity-100"
+                }`}
+              />
+            </Link>
+          </div>
 
           {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center gap-8">
@@ -75,7 +107,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         className="absolute top-full mt-4 left-0 w-[640px] max-w-[90vw]
-                                   bg-[#125ca5] text-white rounded-xl shadow-xl p-6"
+                        bg-[#125ca5] text-white rounded-xl shadow-xl p-6"
                       >
                         <div className="grid grid-cols-2 gap-3 text-sm">
                           {servicesDropdown.map((item) => (
@@ -108,7 +140,7 @@ export default function Navbar() {
             )}
 
             <Link to="/booking">
-              <button className="bg-gradient-to-r from-[#A7D3F3] to-[#F7C6D3] text-white px-5 py-2 rounded-full text-sm font-medium">
+              <button className="bg-gradient-to-r from-[#0095ff] to-[#ff7197] text-white px-5 py-2 rounded-full text-sm font-medium">
                 Book Appointment
               </button>
             </Link>

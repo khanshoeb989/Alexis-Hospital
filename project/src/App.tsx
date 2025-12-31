@@ -1,25 +1,32 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Cosmetology from './pages/Cosmetology';
-import Booking from './pages/Booking';
-import Contact from './pages/Contact';
-import ServiceDetailsPage from './pages/ServiceDetailsPage';
-import TopInfoBar from "./components/TopInfoBar"
-import Gallery from './pages/Gallery';
-import Testimonials from './pages/Testimonials';
-import DoctorDetails from './pages/DoctorDetails';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import TopInfoBar from "./components/TopInfoBar";
+import ScrollToTop from "./components/ScrollToTop";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Cosmetology from "./pages/Cosmetology";
+import Booking from "./pages/Booking";
+import Contact from "./pages/Contact";
+import ServiceDetailsPage from "./pages/ServiceDetailsPage";
+import Gallery from "./pages/Gallery";
+import Testimonials from "./pages/Testimonials";
+import DoctorDetails from "./pages/DoctorDetails";
 
 function App() {
   return (
     <Router>
+      {/* 👇 GLOBAL SCROLL HANDLER */}
+      <ScrollToTop />
+
       <div className="min-h-screen bg-white">
-        <TopInfoBar/>
+        <TopInfoBar />
         <Navbar />
+
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -34,6 +41,7 @@ function App() {
             <Route path="/doctors/:slug" element={<DoctorDetails />} />
           </Routes>
         </AnimatePresence>
+
         <Footer />
       </div>
     </Router>

@@ -1,101 +1,78 @@
-import { Link } from 'react-router-dom';
-import { Heart, Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-br from-[#F5EAD7] to-white pt-16 pb-8">
+    <footer className="bg-gradient-to-br from-[#A7D3F3]/10 via-white to-[#F7C6D3]/10 pt-16 pb-8 font-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          <div>
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-gradient-to-br from-[#A7D3F3] to-[#F7C6D3] p-2 rounded-xl">
-                <Heart className="w-6 h-6 text-white" fill="white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-[#A7D3F3] to-[#F7C6D3] bg-clip-text text-transparent">
-                  Alexis Hospital
-                </h3>
-              </div>
-            </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Advanced healthcare and cosmetology services under one roof. Where medical excellence meets beauty and wellness.
+
+        {/* ================= MAIN GRID ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+
+          {/* MAP */}
+          <div className="rounded-3xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.3388662818693!2d73.06689187467084!3d19.311096444551016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bdb6c23e2777%3A0x179da9d8a75fcee6!2sAlexis%20Hospital%20%26%20Critical%20Care%20Centre!5e0!3m2!1sen!2sin!4v1766237546240"
+              className="w-full h-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Alexis Hospital Location"
+            />
+          </div>
+
+          {/* CONTACT INFO */}
+          <div className="flex flex-col justify-center">
+            <h3 className="text-2xl font-bold text-[#0b1324] mb-4">
+              Alexis Hospital & Critical Care
+            </h3>
+
+            <p className="text-gray-600 mb-6 max-w-md">
+              Advanced healthcare and premium cosmetology services — trusted care
+              under one roof.
             </p>
-          </div>
 
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-4">Quick Links</h4>
-            <ul className="space-y-3">
-              {['Home', 'About', 'Services', 'Contact'].map((link) => (
-                <li key={link}>
-                  <Link
-                    to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
-                    className="text-gray-600 hover:text-[#A7D3F3] transition-colors text-sm"
-                  >
-                    {link}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-4">Services</h4>
-            <ul className="space-y-3">
-              {[
-                'Medical Care',
-                'Cosmetology',
-                'Diagnostics',
-                'Emergency Care',
-              ].map((service) => (
-                <li key={service}>
-                  <span className="text-gray-600 text-sm">{service}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-4">Contact Info</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start space-x-3">
-                <Phone className="w-4 h-4 text-[#A7D3F3] mt-1 flex-shrink-0" />
-                <span className="text-gray-600 text-sm">+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <Mail className="w-4 h-4 text-[#A7D3F3] mt-1 flex-shrink-0" />
-                <span className="text-gray-600 text-sm">info@alexishospital.com</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <MapPin className="w-4 h-4 text-[#A7D3F3] mt-1 flex-shrink-0" />
-                <span className="text-gray-600 text-sm">
-                  123 Healthcare Ave, Medical District, NY 10001
+            <ul className="space-y-4 text-gray-700">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-[#0095ff]" />
+                <span>
+                  GROUND FLOOR, GULISTAN APARTMENT, near SHANDAR MARKET, Vanjar Patti Naka, Avachit Pada, Bhiwandi, Maharashtra 421302
                 </span>
               </li>
-            </ul>
-          </div>
-        </div>
 
-        <div className="border-t border-gray-200 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-600 text-sm">
-              © {currentYear} Alexis Hospital. All rights reserved.
-            </p>
-            <div className="flex space-x-4">
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-[#0095ff]" />
+                <span>+91 9699933358</span>
+              </li>
+
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-[#0095ff]" />
+                <span>alexishospitalbhiwandi@gmail.com</span>
+              </li>
+            </ul>
+
+            {/* SOCIALS */}
+            <div className="flex gap-4 mt-6">
               {[Facebook, Instagram, Twitter].map((Icon, index) => (
                 <motion.a
                   key={index}
                   href="#"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  className="bg-gradient-to-br from-[#A7D3F3] to-[#F7C6D3] p-2 rounded-full"
+                  whileHover={{ scale: 1.15 }}
+                  className="bg-gradient-to-br from-[#0095ff] to-[#ff7197] p-2 rounded-full shadow-md"
                 >
                   <Icon className="w-4 h-4 text-white" />
                 </motion.a>
               ))}
             </div>
           </div>
+        </div>
+
+        {/* ================= BOTTOM BAR ================= */}
+        <div className="border-t border-gray-200 pt-6 text-center">
+          <p className="text-sm text-gray-600">
+            © {currentYear} Alexis Hospital. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

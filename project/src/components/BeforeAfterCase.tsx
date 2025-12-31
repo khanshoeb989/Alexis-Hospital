@@ -38,72 +38,70 @@ export default function BeforeAfterCase() {
 
   if (loading || cases.length === 0) return null;
 
-  /* -------------------- CARD -------------------- */
+  /* ---------------- CARD ---------------- */
 
   const CaseContent = ({ item }: { item: BeforeAfterCaseType }) => (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className="
-  bg-white rounded-[32px] shadow-2xl
-  max-w-[1100px]
-  mx-auto
-  p-6 sm:p-10 lg:p-14
-  grid grid-cols-1 lg:grid-cols-2
-  gap-10 lg:gap-16
-  items-center
-"
->
-      {/* LEFT */}
+        bg-white rounded-3xl shadow-xl
+        max-w-[1100px] mx-auto
+        p-5 sm:p-8 lg:p-12
+        grid grid-cols-1 lg:grid-cols-2
+        gap-6 sm:gap-8 lg:gap-14
+        items-center
+      "
+    >
+      {/* LEFT CONTENT */}
       <div>
         <span
           className="
-            inline-block mb-6 px-4 py-2 rounded-full text-sm font-semibold
-            bg-gradient-to-r from-[#A7D3F3]/40 to-[#F7C6D3]/40 text-gray-800
+            inline-block mb-3 px-4 py-1.5 rounded-full
+            text-xs sm:text-sm font-semibold
+            bg-gradient-to-r from-[#A7D3F3]/40 to-[#F7C6D3]/40
+            text-gray-800 font-heading
           "
         >
           {item.serviceCategory}
         </span>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 font-heading">
           {item.title}
         </h2>
 
-        <p className="text-gray-600 text-lg leading-relaxed max-w-md">
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-md font-body">
           {item.description}
         </p>
       </div>
 
-      {/* RIGHT */}
-      <div className="grid grid-cols-2 gap-10 items-center">
-        {[{ src: item.beforeImage, label: "BEFORE" },
-          { src: item.afterImage, label: "AFTER" }].map((img) => (
+      {/* RIGHT IMAGES */}
+      <div className="grid grid-cols-2 gap-4 sm:gap-6">
+        {[
+          { src: item.beforeImage, label: "BEFORE" },
+          { src: item.afterImage, label: "AFTER" },
+        ].map((img) => (
           <motion.div
             key={img.label}
-            whileHover={{ y: -8 }}
+            whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
             className="
-              rounded-3xl overflow-hidden
+              rounded-2xl overflow-hidden
               bg-white border border-gray-100
-              shadow-xl
+              shadow-lg
             "
           >
-           <div className="w-full aspect-square bg-white flex items-center justify-center">
-  <img
-    src={img.src}
-    alt={img.label}
-    className="
-      w-full
-      h-full
-      object-cover
-    "
-  />
-</div>
+            <div className="w-full aspect-square">
+              <img
+                src={img.src}
+                alt={img.label}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-
-            <div className="py-4 text-center text-sm font-semibold tracking-wider text-gray-700">
+            <div className="py-2 text-center text-xs sm:text-sm font-semibold tracking-wide text-gray-700">
               {img.label}
             </div>
           </motion.div>
@@ -112,33 +110,52 @@ export default function BeforeAfterCase() {
     </motion.div>
   );
 
-  /* -------------------- RENDER -------------------- */
+  /* ---------------- RENDER ---------------- */
 
   return (
-    <section className="py-36 bg-white overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-6">
-        {/* RIGHT FADE (SOFT, NO HARD EDGE) */}
+    <section
+      className="
+        py-6 sm:py-8 md:py-10
+        bg-white
+        overflow-hidden
+      "
+    >
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+
+        {/* RIGHT FADE — DESKTOP ONLY */}
         <div
           className="
+            hidden lg:block
             pointer-events-none absolute right-0 top-0 z-20 h-full w-36
             bg-gradient-to-l from-white via-white/80 to-transparent
           "
         />
 
         <Swiper
-  modules={[Autoplay, Pagination]}
-  autoplay={{ delay: 5500, disableOnInteraction: false }}
-  pagination={{ clickable: true }}
-  loop
-  speed={900}
-  centeredSlides
-  slidesPerView={1.22}     // 👈 critical
-  spaceBetween={64}        // 👈 breathing room
-  roundLengths
-  watchSlidesProgress      // 👈 VERY IMPORTANT
-  className="before-after-swiper"
->
-
+          modules={[Autoplay, Pagination]}
+          autoplay={{ delay: 5500, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          loop
+          speed={900}
+          centeredSlides
+          watchSlidesProgress
+          spaceBetween={24}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 16,
+            },
+            768: {
+              slidesPerView: 1.05,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 1.22,
+              spaceBetween: 48,
+            },
+          }}
+          className="before-after-swiper"
+        >
           {cases.map((item) => (
             <SwiperSlide
               key={item._id}
