@@ -46,8 +46,6 @@ export const doctors: Doctor[] = [
 
     experienceDetails: [
       "Former Assistant Professor – Department of Medicine, KEM Hospital, Mumbai",
-      "Consultant Physician – Shree Prajakta Multi-speciality Hospital",
-      "Consultant Physician – Siraj Memorial Hospital",
       "Consultant Physician – Alexis Hospital",
     ],
 
