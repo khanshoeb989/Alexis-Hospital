@@ -100,9 +100,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white sm: mt-8">
-      <h1 className="sr-only">
-        Alexis Hospital Bhiwandi – Best Multispecialty & Cosmetology Hospital
-      </h1>
+      
 
       {/* ================= HERO ================= */}
       <section className="relative pt-[140px] md:pt-[120px] min-h-[90vh] flex items-center justify-center">
@@ -158,6 +156,28 @@ export default function Home() {
 
         </div>
       </section>
+
+      <section className="pt-[140px] md:pt-[120px] text-center max-w-6xl mx-auto px-4">
+
+{/* ✅ REAL H1 (VISIBLE) */}
+<h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0b1324] mb-6">
+  Alexis Hospital Bhiwandi – Best Multispecialty & Cosmetology Hospital
+</h1>
+
+<p className="text-gray-600 max-w-3xl mx-auto text-base md:text-lg">
+  Alexis Hospital is a leading multispecialty hospital in Bhiwandi,
+  providing expert treatment in diabetes, cardiology, nephrology,
+  internal medicine, and advanced cosmetology services under Renew+.
+</p>
+
+<p className="mt-4 text-gray-600 max-w-3xl mx-auto">
+  Our hospital is trusted by patients across Bhiwandi and nearby regions
+  for ethical medical care, modern infrastructure, and experienced
+  doctors including Dr. Ganesh Ahire, Dr. Ahmed Khan, and
+  Dr. Saman Ahmed Khan.
+</p>
+
+</section>
 
       <div className="sr-only">
         <Link to="/services">Medical Services in Bhiwandi</Link>
@@ -326,82 +346,7 @@ export default function Home() {
 
 
 
-{/*
-      <motion.section
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-        className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#A7D3F3]/10 to-[#F7C6D3]/10"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div variants={fadeInUp}>
-              <span className="bg-gradient-to-r from-[#A7D3F3] to-[#F7C6D3] text-white px-4 py-2 rounded-full text-sm font-medium">
-                Premium Cosmetology
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mt-6 mb-6">
-                Advanced Beauty & Skin Care Treatments
-              </h2>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                Experience luxury cosmetology services with cutting-edge technology
-                and expert dermatologists. From anti-aging treatments to laser skin
-                rejuvenation, we offer comprehensive beauty solutions.
-              </p>
-              <ul className="space-y-4 mb-8">
-                {[
-                  'Advanced Facials & Deep Cleansing',
-                  'Tan Removal & Skin Brightening',
-                  'Chemical Peels & Exfoliation',
-                  'Anti-Aging & Wrinkle Reduction',
-                  'Laser Skin Treatments',
-                  'Hair Rejuvenation Therapy',
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    variants={fadeInUp}
-                    className="flex items-center space-x-3"
-                  >
-                    <div className="bg-gradient-to-br from-[#A7D3F3] to-[#F7C6D3] w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0">
-                      <ChevronRight className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-gray-700">{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-              <Link to="/services/cosmetology">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-[#A7D3F3] to-[#F7C6D3] text-white px-8 py-4 rounded-full font-semibold shadow-xl"
-                >
-                  Explore Cosmetology Services
-                </motion.button>
-              </Link>
-            </motion.div>
 
-            <motion.div
-              variants={fadeInUp}
-              className="relative"
-            >
-              <div className="grid grid-cols-2 gap-4">
-                {[1, 2, 3, 4].map((item) => (
-                  <motion.div
-                    key={item}
-                    whileHover={{ scale: 1.05 }}
-                    className="aspect-square bg-gradient-to-br from-[#A7D3F3]/20 to-[#F7C6D3]/20 rounded-3xl overflow-hidden shadow-lg"
-                  >
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Sparkles className="w-12 h-12 text-[#A7D3F3]" />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-      */}
 
       <motion.section
   initial="initial"
