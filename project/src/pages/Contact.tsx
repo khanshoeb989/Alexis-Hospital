@@ -9,6 +9,7 @@ import {
   CheckCircle,
   Ambulance,
 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -110,19 +111,81 @@ export default function Contact() {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>
+          Contact Alexis Hospital Bhiwandi | Appointments & Emergency Care
+        </title>
+
+        <meta
+          name="description"
+          content="Contact Alexis Hospital Bhiwandi for doctor appointments, emergency care, and patient support. Call, WhatsApp, or visit our hospital location."
+        />
+
+        <link
+          rel="canonical"
+          href="https://alexishospitalbhiwandi.com/contact"
+        />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Contact Alexis Hospital Bhiwandi"
+        />
+        <meta
+          property="og:description"
+          content="Get in touch with Alexis Hospital Bhiwandi for medical appointments and emergency services."
+        />
+        <meta
+          property="og:url"
+          content="https://alexishospitalbhiwandi.com/contact"
+        />
+
+        {/* Contact Page Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Alexis Hospital Bhiwandi",
+            "url": "https://alexishospitalbhiwandi.com/contact",
+            "mainEntity": {
+              "@type": "Hospital",
+              "name": "Alexis Hospital & Critical Care Centre",
+              "telephone": "+91-9028111592",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bhiwandi",
+                "addressRegion": "Maharashtra",
+                "addressCountry": "IN",
+              },
+            },
+          })}
+        </script>
+      </Helmet>
     <div className="min-h-screen bg-white pt-16 md:pt-20 font-heading sm: mt-20">
+      
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         className="relative py-12 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#A7D3F3]/20 via-white to-[#F7C6D3]/20"
       >
         <div className="max-w-7xl mx-auto text-center">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-center mb-6">
+          Contact Alexis Hospital Bhiwandi
+        </h1>
+
+        <p className="text-center text-gray-600 max-w-3xl mx-auto mb-10">
+          Reach Alexis Hospital & Critical Care Centre in Bhiwandi for doctor
+          appointments, emergency services, and patient inquiries.
+        </p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6"
           >
+
             Get in{' '}
             <span className="bg-gradient-to-r from-[#0095ff] to-[#ff7197] bg-clip-text text-transparent">
               Touch
@@ -375,5 +438,7 @@ export default function Contact() {
         </div>
       </motion.section>
     </div>
+
+    </>
   );
 }
