@@ -24,7 +24,7 @@ export default function Booking() {
     });
   };
 
-  const WHATSAPP_NUMBER = "917498881947"; 
+  const WHATSAPP_NUMBER = "919699933358"; 
 // 👆 replace with CLIENT’S official WhatsApp number (country code required)
 
 const handleSubmit = (e: React.FormEvent) => {
@@ -179,7 +179,7 @@ ${formData.message || "No additional notes"}
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-[#A7D3F3]" />
-                    <span className="text-gray-700">+1 (555) 123-4567</span>
+                    <span className="text-gray-700">+91 9699933358</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-[#F7C6D3]" />
