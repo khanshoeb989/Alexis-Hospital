@@ -54,17 +54,50 @@ ${formData.message || "No additional notes"}
 
 
   const services = [
-    'General Health Checkup',
-    'Specialist Consultation',
-    'Emergency Care',
-    'Diagnostic Services',
-    'Advanced Facial',
-    'Tan Removal',
-    'Chemical Peel',
-    'Anti-Aging Treatment',
-    'Laser Treatment',
-    'Hair Rejuvenation',
-  ];
+  // ===== GENERAL =====
+  "General Health Checkup",
+  "Specialist Consultation",
+  "Emergency Care",
+  "Diagnostic Services",
+
+  // ===== SKIN =====
+  "Skin – Hydra Facial",
+  "Skin – Medi Facial",
+  "Skin – Vampire Facial",
+  "Skin – Hollywood Facial",
+  "Skin – Glass Glow Facial",
+  "Skin – Acne Treatment",
+  "Skin – Pigmentation Treatment",
+  "Skin – Anti-Aging Treatment",
+  "Skin – Chemical Peel",
+  "Skin – Under-Eye Treatment",
+  "Skin – Lip Pigmentation Treatment",
+  "Skin – Tattoo Removal",
+  "Skin – Skin Tag / Mole Removal",
+
+  // ===== HAIR =====
+  "Hair – Hair Fall Treatment",
+  "Hair – Dandruff Treatment",
+  "Hair – Hair Rejuvenation",
+  "Hair – PRP / GFC Treatment",
+  "Hair – Hair Mesotherapy",
+  "Hair – Hair Transplant",
+
+  // ===== LASER =====
+  "Laser – Upper Lip",
+  "Laser – Chin",
+  "Laser – Full Face",
+  "Laser – Underarms",
+  "Laser – Full Arms",
+  "Laser – Full Legs",
+  "Laser – Full Body",
+
+  // ===== PRE-WEDDING =====
+  "Pre-Wedding – Body Polishing",
+  "Pre-Wedding – BB Glow",
+  "Pre-Wedding – Glow Therapy",
+];
+
 
   const timeSlots = [
     '09:00 AM',
